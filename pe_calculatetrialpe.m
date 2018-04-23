@@ -13,7 +13,7 @@
 %   time        (vector) - center of time periods used to calculate peseries
 %
 % Usage: 
-%   [peseries, time] = util_calculatetrialpe(data, nsamp, noverlap, srate, weighted);
+%   [peseries, time] = pe_calculatetrialpe(data, nsamp, noverlap, srate, weighted);
 %
 function [peseries, time, symbolseries] = pe_calculatetrialpe(data, nsamp, noverlap, srate, weighted)
 if nargin < 5
@@ -45,6 +45,6 @@ for ipe = 1:npe
     
     % get window across trials, unwrap to column, and pass to pe_calculatechannelpe 
     % use same window length and number of trials as the number of windows to calculate PE over
-    [peseries(ipe), ~, symbolseries(ipe, :)] = util_calculatechannelpe(sampcurr(:), nsamp, 0, ntrial, srate, weighted);
+    [peseries(ipe), ~, symbolseries(ipe, :)] = pe_calculatechannelpe(sampcurr(:), nsamp, 0, ntrial, srate, weighted);
 end
 end
